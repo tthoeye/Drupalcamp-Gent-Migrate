@@ -50,8 +50,43 @@ class DrupalCampShopsMigration extends Migration {
     // Instantiate the destination class
     $this->destination = new MigrateDestinationNode('shop');
 
+    // Map title
     $this->addFieldMapping('title', 'NAAM')
          ->description('Mapping NAAM in Source to title of Node');
+    // Map other simple text fields
+    $this->addFieldMapping('field_address_street', 'STRAAT')
+         ->description('Mapping NAAM in Source to title of Node');
+    $this->addFieldMapping('field_address_number', 'NUMMER')
+         ->description('Mapping NAAM in Source to title of Node');
+    $this->addFieldMapping('field_address_postal_code', 'POSTNUMMER')
+         ->description('Mapping NAAM in Source to title of Node');
+    $this->addFieldMapping('field_address_municipality', 'STAD')
+         ->description('Mapping NAAM in Source to title of Node');
+    $this->addFieldMapping('language')
+         ->defaultValue(LANGUAGE_NONE)
+         ->description('Language');
+    $this->addFieldMapping('comment')
+         ->defaultValue(0)
+         ->description('Comments disallowed by default');
+    $this->addFieldMapping('status')
+         ->defaultValue(1)
+         ->description('Node published by default');
+
+    // Destination fields that are not going to be used
+    $dnm = array(
+      'is_new',
+      'uid',
+      'sticky',
+      'created',
+      'changed',
+      'promote',
+      'revision_uid',
+      'revision',
+      'path',
+      'log',
+      'tnid'
+    );
+    $this->addUnmigratedDestinations($dnm);
 
   }
 
