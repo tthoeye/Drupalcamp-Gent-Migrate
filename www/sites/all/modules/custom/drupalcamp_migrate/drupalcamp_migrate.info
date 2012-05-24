@@ -1,0 +1,13 @@
+name = "Drupal Camp Migrate"
+description = "Example Migrations for Drupal Camp talk."
+package = "Drupal Camp"
+core = 7.x
+dependencies[] = taxonomy
+dependencies[] = image
+dependencies[] = comment
+dependencies[] = migrate
+dependencies[] = list
+dependencies[] = number
+dependencies[] = entityreference
+
+files[] = drupalcamp_migrate.module
