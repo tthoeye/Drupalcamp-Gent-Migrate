@@ -49,6 +49,10 @@ class DrupalCampShopsMigration extends Migration {
     $this->source = new MigrateSourceCSV(dirname(__FILE__) .'/gentverwent.csv.out', $columns, $options);
     // Instantiate the destination class
     $this->destination = new MigrateDestinationNode('shop');
+
+    $this->addFieldMapping('title', 'NAAM')
+         ->description('Mapping NAAM in Source to title of Node');
+
   }
 
 }
