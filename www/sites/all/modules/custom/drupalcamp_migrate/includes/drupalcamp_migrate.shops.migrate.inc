@@ -62,6 +62,7 @@ class DrupalCampShopsMigration extends Migration {
          ->description('Mapping NAAM in Source to title of Node');
     $this->addFieldMapping('field_address_municipality', 'STAD')
          ->description('Mapping NAAM in Source to title of Node');
+    // Default values
     $this->addFieldMapping('language')
          ->defaultValue(LANGUAGE_NONE)
          ->description('Language');
@@ -71,7 +72,14 @@ class DrupalCampShopsMigration extends Migration {
     $this->addFieldMapping('status')
          ->defaultValue(1)
          ->description('Node published by default');
-
+    // Map Taxonomy
+    $this->addFieldMapping('field_category', 'CATEGORIE')
+         ->description('Map and create taxonomy terms where necessary')
+         ->arguments(array('create_term' => TRUE));
+    // Map Body
+    $this->addFieldMapping('body', 'BESCHRIJVING')
+         ->arguments(array('format' => 'full_html'))
+         ->description('Beschrijving');
     // Destination fields that are not going to be used
     $dnm = array(
       'is_new',
