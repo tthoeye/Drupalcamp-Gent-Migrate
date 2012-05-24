@@ -2375,11 +2375,6 @@ function _drupal_bootstrap_database() {
   // the install or upgrade process.
   spl_autoload_register('drupal_autoload_class');
   spl_autoload_register('drupal_autoload_interface');
-
-  // Allow specifying alternate lock implementations in settings.php, like
-  // those using APC or memcached.
-  require_once DRUPAL_ROOT . '/' . variable_get('lock_inc', 'includes/lock.inc');
-  lock_initialize();
 }
 
 /**
@@ -2404,8 +2399,6 @@ function _drupal_bootstrap_variables() {
  */
 function _drupal_bootstrap_page_header() {
   bootstrap_invoke_all('boot');
-  require_once DRUPAL_ROOT . '/' . variable_get('lock_inc', 'includes/lock.inc');
-  lock_initialize();
 
   if (!drupal_is_cli()) {
     ob_start();
