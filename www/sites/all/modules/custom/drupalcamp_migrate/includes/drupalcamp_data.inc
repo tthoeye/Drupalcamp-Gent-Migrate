@@ -31,11 +31,11 @@ function drupalcamp_migrate_load_csv($file) {
 
 function _random_image() {
   $images = array(
-    'http://drupalcamp.local/images/01.png',
-    'http://drupalcamp.local/images/02.png',
-    'http://drupalcamp.local/images/03.png',
-    'http://drupalcamp.local/images/04.png',
-    'http://drupalcamp.local/images/05.png',
+    'http://www.inter.net/images/01.png',
+    'http://www.inter.net/images/02.png',
+    'http://www.inter.net/images/03.png',
+    'http://www.inter.net/images/04.png',
+    'http://www.inter.net/images/05.png',
   );
   return $images[rand(0, count($images) -1)];
 }
@@ -43,10 +43,12 @@ function _random_image() {
 function _random_links() {
   $links = array(
   	'http://www.puresign.be',
-  	'http://www.calibrate.net',
+  	'http://www.calibrate.be',
   	'http://www.krimson.be',
   	'http://www.xio.be',
-  	'http://www.openminds.be'
+  	'http://www.openminds.be',
+  	'http://www.nivario.be',
+  	'http://www.amplexor.be',
   );
   $results = array();
   $num = rand(1,4);
