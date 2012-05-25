@@ -91,7 +91,10 @@ class DrupalCampShopsMigration extends Migration {
     $this->addFieldMapping('field_image', 'AFBEELDING')
          ->description('Copy and/or rename images');
     // Add multiple links
-
+    $this->addFieldMapping('field_links', 'LINKS')
+         ->separator(',')
+         ->arguments(array('title' => 'This is a link'))
+         ->description('Split and insert links');
     // Destination fields that are not going to be used
     $dnm = array(
       'is_new',
