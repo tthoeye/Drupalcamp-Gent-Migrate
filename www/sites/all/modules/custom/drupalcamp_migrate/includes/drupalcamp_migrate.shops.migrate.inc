@@ -80,6 +80,11 @@ class DrupalCampShopsMigration extends Migration {
     $this->addFieldMapping('body', 'BESCHRIJVING')
          ->arguments(array('format' => 'full_html'))
          ->description('Beschrijving');
+    // Map a node reference
+    $this->addFieldMapping('field_location', 'POSTNUMMER')
+         ->sourceMigration('DrupalCampLocations')
+         ->description('Node reference to locations');
+
     // Destination fields that are not going to be used
     $dnm = array(
       'is_new',
