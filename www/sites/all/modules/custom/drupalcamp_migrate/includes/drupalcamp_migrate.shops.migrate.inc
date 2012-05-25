@@ -84,7 +84,10 @@ class DrupalCampShopsMigration extends Migration {
     $this->addFieldMapping('field_location', 'POSTNUMMER')
          ->sourceMigration('DrupalCampLocations')
          ->description('Node reference to locations');
-
+    // Add an image
+    $image_arguments = MigrateFileFieldHandler::arguments(NULL, 'file_copy', FILE_EXISTS_RENAME);
+    $this->addFieldMapping('field_image', 'AFBEELDING')
+         ->description('Copy and/or rename images');
     // Destination fields that are not going to be used
     $dnm = array(
       'is_new',

@@ -31,11 +31,11 @@ function drupalcamp_migrate_load_csv($file) {
 
 function _random_image() {
   $images = array(
-    'drupalcamp.local/images/01.png',
-    'drupalcamp.local/images/02.png',
-    'drupalcamp.local/images/03.png',
-    'drupalcamp.local/images/04.png',
-    'drupalcamp.local/images/05.png',
+    'http://drupalcamp.local/images/01.png',
+    'http://drupalcamp.local/images/02.png',
+    'http://drupalcamp.local/images/03.png',
+    'http://drupalcamp.local/images/04.png',
+    'http://drupalcamp.local/images/05.png',
   );
   return $images[rand(0, count($images) -1)];
 }
