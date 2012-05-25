@@ -1,5 +1,7 @@
 <?php
 
+module_load_include('inc', 'link', 'link.migrate');
+
 class DrupalCampShopsMigration extends Migration {
 
   /**
@@ -88,6 +90,8 @@ class DrupalCampShopsMigration extends Migration {
     $image_arguments = MigrateFileFieldHandler::arguments(NULL, 'file_copy', FILE_EXISTS_RENAME);
     $this->addFieldMapping('field_image', 'AFBEELDING')
          ->description('Copy and/or rename images');
+    // Add multiple links
+
     // Destination fields that are not going to be used
     $dnm = array(
       'is_new',
