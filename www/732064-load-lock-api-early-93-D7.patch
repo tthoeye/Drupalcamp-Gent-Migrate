@@ -1,0 +1,25 @@
+diff --git includes/bootstrap.inc includes/bootstrap.inc
+index 177ae62..088ff5e 100644
+--- includes/bootstrap.inc
++++ includes/bootstrap.inc
+@@ -1936,6 +1936,11 @@ function _drupal_bootstrap_database() {
+   // Register autoload functions so that we can access classes and interfaces.
+   spl_autoload_register('drupal_autoload_class');
+   spl_autoload_register('drupal_autoload_interface');
++
++  // Allow specifying alternate lock implementations in settings.php, like
++  // those using APC or memcached.
++  require_once DRUPAL_ROOT . '/' . variable_get('lock_inc', 'includes/lock.inc');
++  lock_initialize();
+ }
+ 
+ /**
+@@ -1961,8 +1966,6 @@ function _drupal_bootstrap_page_header() {
+   }
+ 
+   // Prepare for non-cached page workflow.
+-  require_once DRUPAL_ROOT . '/' . variable_get('lock_inc', 'includes/lock.inc');
+-  lock_initialize();
+ 
+   if (!drupal_is_cli()) {
+     ob_start();

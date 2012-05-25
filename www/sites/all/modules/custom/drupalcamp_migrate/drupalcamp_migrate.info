@@ -11,3 +11,5 @@ dependencies[] = number
 dependencies[] = entityreference
 
 files[] = drupalcamp_migrate.module
+files[] = includes/drupalcamp_migrate.locations.migrate.inc
+files[] = includes/drupalcamp_migrate.shops.migrate.inc

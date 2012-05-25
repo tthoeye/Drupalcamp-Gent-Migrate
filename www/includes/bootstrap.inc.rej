@@ -1,0 +1,17 @@
+***************
+*** 2400,2407 ****
+    }
+  
+    // Prepare for non-cached page workflow.
+-   require_once DRUPAL_ROOT . '/' . variable_get('lock_inc', 'includes/lock.inc');
+-   lock_initialize();
+  
+    if (!drupal_is_cli()) {
+      ob_start();
+--- 2405,2410 ----
+    }
+  
+    // Prepare for non-cached page workflow.
+  
+    if (!drupal_is_cli()) {
+      ob_start();
